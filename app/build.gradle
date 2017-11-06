@@ -1,0 +1,91 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        config {
+            keyAlias 'cloudring'
+            keyPassword 'fgecctv'
+            storeFile file('../cloudring.jks')
+            storePassword 'fgecctv'
+        }
+    }
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+    defaultConfig {
+        applicationId "com.fgecctv.trumpet.shell"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 8
+        versionName "1.2.0.2"
+        signingConfig signingConfigs.config
+        ndk {
+            // 设置支持的SO库架构
+            abiFilters 'armeabi' //, 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    def outputFile = output.outputFile
+                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                        def fileName = "DigitalSignage_${defaultConfig.versionName}.apk"
+                        output.outputFile = new File(outputFile.parent, fileName)
+                    }
+                }
+            }
+        }
+    }
+
+    // Encapsulates your external native build configurations.
+    externalNativeBuild {
+
+        // Encapsulates your CMake build configurations.
+        cmake {
+            // Provides a relative path to your CMake build script.
+            path "CMakeLists.txt"
+        }
+    }
+
+    repositories {
+        jcenter()
+        flatDir {
+            dirs 'libs'
+        }
+    }
+}
+
+dependencies {
+    // App's dependencies
+    compile "com.android.support:design:$rootProject.supportLibraryVersion"
+    //
+    compile "com.android.support:support-v4:$rootProject.supportLibraryVersion"
+    //
+    compile "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
+    //
+    compile "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
+    //
+    compile 'com.jakewharton:butterknife:7.0.1'
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.alibaba:fastjson:1.2.8'
+    compile 'eu.the4thfloor.volley:com.android.volley:2015.05.28'
+    compile 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.1.0'
+    testCompile "junit:junit:$rootProject.junitVersion"
+    //
+    testCompile 'org.robolectric:robolectric:3.0'
+    testCompile 'org.mockito:mockito-all:2.0.2-beta'
+    testCompile 'org.powermock:powermock-api-mockito:1.6.4'
+    testCompile 'org.powermock:powermock-module-junit4:1.6.4'
+    compile 'com.google.guava:guava:19.0'
+    debugCompile project(':voyage')
+    releaseCompile project(':voyage-no-op')
+    compile(name: 'ipc_client-release', ext: 'aar')
+    compile(name: 'rtsp-release', ext: 'aar')
+    compile 'com.tencent.bugly:crashreport:latest.release'
+    compile 'com.tencent.bugly:nativecrashreport:latest.release'
+    //友盟
+    compile 'com.umeng.analytics:analytics:latest.integration'
+}

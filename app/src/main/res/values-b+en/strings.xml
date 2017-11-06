@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Digital Signage</string>
+    <string name="netWork_is_not_connected_for_update">Failed in checking for updates, the network is currently unavailable</string>
+    <string name="netWork_is_not_connected">The network is currently unavailable</string>
+    <string name="login">Sign in</string>
+    <string name="binding">Binding…</string>
+    <string name="sync_fail">Failed to update</string>
+    <string name="update_monitor">Updating the settings of camera</string>
+    <string name="ad_delete">The ad has been removed</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+    <string name="deviceName">Device Name</string>
+    <string name="languageCode">EN</string>
+    <string name="device">Device</string>
+    <string name="version">Version</string>
+</resources>

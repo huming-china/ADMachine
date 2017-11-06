@@ -1,0 +1,5 @@
+# ninja log v5
+1	294	0	CMakeFiles/rtc-lib.dir/src/main/cpp/rtc-control.cpp.o	a1acc374d023d3a3
+3	296	0	CMakeFiles/rtc-lib.dir/src/main/cpp/serial_poweroff.cpp.o	2d2f30c0a0115f0e
+4	298	0	CMakeFiles/rtc-lib.dir/src/main/cpp/Power.cpp.o	9d0aeb218b48a969
+299	459	0	../../../../build/intermediates/cmake/debug/obj/armeabi/librtc-lib.so	19fa5b51ec35ce42

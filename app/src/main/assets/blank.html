@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            background-color: darkgray;
+            position: relative;
+        }
+        .section {
+            text-align: center;
+            position: absolute;
+            left: 50%;
+            /*调节内容区域X轴位置*/
+            top: 50%;
+             /*调节内容区域Y轴位置*/
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+        img{
+            height: auto;
+            /*调节图片高度*/
+            width: auto;
+            /*调节图片宽度*/
+            border: none;
+            display: block;
+        }
+        .title{
+            margin:0;
+            padding: 10;
+            margin-top: 15px;
+            /*调节文字距离图片的高度*/
+           font-size: 40px;
+           /*调节文字大小*/
+           font-weight: 550;
+           /*调节文字粗细*/
+          -webkit-animation-name: pulse; /*动画名称*/
+		 -webkit-animation-duration:2s; /*动画持续时间*/
+		 -webkit-animation-iteration-count: infinite; /*动画次数*/
+		 -webkit-animation-delay: 0s; /*延迟时间*/
+        }
+		@-webkit-keyframes pulse{
+			0%{-webkit-transform:scale3d(1,1,1);transform:scale3d(1,1,1)}
+			50%{-webkit-transform:scale3d(1.2,1.2,1.2);transform:scale3d(1.2,1.2,1.2)}
+			100%{-webkit-transform:scale3d(1,1,1);transform:scale3d(1,1,1)}
+		}
+		@keyframes pulse{
+			0%{-webkit-transform:scale3d(1,1,1);transform:scale3d(1,1,1)}
+			50%{-webkit-transform:scale3d(1.2,1.2,1.2);transform:scale3d(1.2,1.2,1.2)}
+			100%{-webkit-transform:scale3d(1,1,1);transform:scale3d(1,1,1)}
+		}
+		/*.pulse{-webkit-animation-name:pulse;animation-name:pulse}*/
+    </style>
+    <title>NoAds</title>
+</head>
+<body>
+<div class="section">
+    <img src="noAd.png">
+    <p class="title">Blank Page</p>
+</div>
+</body>
+</html>
